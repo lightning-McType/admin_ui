@@ -1,5 +1,5 @@
 import TextField from "@mui/material/TextField";
-const Search = (props) => {
+function Search(props) {
   return (
     <TextField
       label="Search"
