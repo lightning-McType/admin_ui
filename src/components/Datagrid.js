@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import Search from "./Search";
 import CustomPagination from "./CustomPagination";
 
-
 function Datagrid() {
   const [usersInfo, setUsersInfo] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
@@ -119,13 +118,18 @@ function Datagrid() {
   };
 
   const filter = () => {
-    if (findText !== "") {
+    if (findText === "") {
+      // const result = usersInfo.filter((obj) =>
+      //   Object.keys(obj).some((key) => obj[key].includes(findText))
+      // );
+      // setUsersFiltered(result);
+      setUsersFiltered(usersInfo);
+    } else {
+      // setUsersFiltered(usersInfo);
       const result = usersInfo.filter((obj) =>
         Object.keys(obj).some((key) => obj[key].includes(findText))
       );
       setUsersFiltered(result);
-    } else {
-      setUsersFiltered(usersInfo);
     }
   };
 
